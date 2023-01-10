@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+USER_CONFIG="$HOME/.emacs"
+USER_CONFIG_DIR="$HOME/.emacs.d"
+
+[[ -f $USER_CONFIG ]] && mv $USER_CONFIG{,.orig}
+[[ -d $USER_CONFIG_DIR ]] && mv $USER_CONFIG_DIR{,.orig}
+
+NEW_CONFIG="$(pwd)/.emacs"
+NEW_CONFIG_DIR="$(pwd)/.emacs.d"
+
+ln -s $NEW_CONFIG $USER_CONFIG
+ln -s $NEW_CONFIG_DIR $USER_CONFIG_DIR
